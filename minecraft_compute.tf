@@ -9,9 +9,9 @@ resource "google_service_account" "minecraft_sa" {
   display_name = "Custom SA for VM Instance"
 }
 
-resource "google_project_iam_binding" "start_vm" {
+resource "google_project_iam_binding" "instanceAdminv1-vm" {
   project = var.project_id
-  role    = "projects/${data.google_project.project.project_id}/roles/instanceStateEditor"
+  role    = "roles/compute.instanceAdmin.v1"
   members = [
     "serviceAccount:${data.google_compute_default_service_account.default.email}"
   ]
