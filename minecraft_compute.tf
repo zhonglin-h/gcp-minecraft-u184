@@ -13,7 +13,7 @@ resource "google_project_iam_binding" "instanceAdminv1-vm" {
   project = var.project_id
   role    = "roles/compute.instanceAdmin.v1"
   members = [
-    "serviceAccount:${data.google_compute_default_service_account.default.email}"
+    "serviceAccount:${data.google_compute_default_service_account.default.email}" # wrong account, this isn't the compute engine one
   ]
 }
 
